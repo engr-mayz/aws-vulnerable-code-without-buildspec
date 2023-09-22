@@ -1,5 +1,8 @@
 version: 0.1
+env: 
+    secrets-manager:
+      TOKEN: firstSecret:tokenforsonar
 phases:
   build:
     commands:
-      - mvn verify sonar:sonar -Dsonar.projectKey=newawscodebuildproject -Dsonar.organization=newawscodebuildproject -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1c2b929f6789698a0ecbd07aa3842dd29b39e3a9
+      - mvn verify sonar:sonar -Dsonar.projectKey=newawscodebuildproject -Dsonar.organization=newawscodebuildproject -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$TOKEN
