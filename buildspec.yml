@@ -32,7 +32,7 @@ phases:
 
       - export PATH=$PATH:./sonar-scanner-4.7.0.2747-linux/bin/
 
-      - sonar-scanner -Dsonar.login=$TOKEN -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=engr-mayz -Dsonar.organization=engr-mayz
+      - sonar-scanner -Dsonar.login=$TOKEN -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=engr-mayz -Dsonar.organization=IDENTITYPASS
 
       - sleep 5
 
