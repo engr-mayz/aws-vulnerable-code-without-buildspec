@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   secrets-manager:
-    TOKEN: mainToken:tokenforsonar
+    TOKEN: mainToken1:tokenforsonar
     
 phases:
   install:
