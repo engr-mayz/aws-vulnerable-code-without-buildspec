@@ -32,11 +32,11 @@ phases:
 
       - export PATH=$PATH:./sonar-scanner-4.7.0.2747-linux/bin/
 
-      - sonar-scanner -Dsonar.login=$TOKEN -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=prembly -Dsonar.organization=prembly
+      - sonar-scanner -Dsonar.login=$TOKEN -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=engr-mayz_aws-vulnerable-code-without-buildspec -Dsonar.organization=engr-mayz
 
       - sleep 5
 
-      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=prembly >result.json
+      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=engr-mayz_aws-vulnerable-code-without-buildspec >result.json
 
       - cat result.json
 
