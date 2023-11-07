@@ -1,8 +1,8 @@
 version: 0.2
 
 env:
-  secrets-manager:
-    TOKEN: maintoken:tokenforsonar
+  #secrets-manager:
+    #TOKEN: maintoken:tokenforsonar
     
 phases:
   install:
@@ -31,7 +31,7 @@ phases:
 
       - export PATH=$PATH:./sonar-scanner-4.7.0.2747-linux/bin/
 
-      - sonar-scanner -Dsonar.login=$TOKEN -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=engr-mayz_aws-vulnerable-code-without-buildspec -Dsonar.organization=engr-mayz
+      - sonar-scanner -Dsonar.login=eed8f13793494e9c26c7ca3c5046d127f0b2af9a -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=engr-mayz_aws-vulnerable-code-without-buildspec -Dsonar.organization=engr-mayz
 
       - sleep 5
 
