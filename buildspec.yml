@@ -14,7 +14,6 @@ phases:
 
   pre_build:
 
-  
       - |-
         apt-get update
         apt-get -y install wget
