@@ -1,8 +1,8 @@
 version: 0.2
 
-#env:
-  #secrets-manager:
-    #TOKEN: maintoken:tokenforsonar
+env:
+  secrets-manager:
+    TOKEN: maintoken:tokenforsonar
     
 phases:
   install:
@@ -14,32 +14,7 @@ phases:
 
   pre_build:
 
-    commands:
-      - apt-get update
-
-      - apt-get install -y jq
-
-      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
-
-      - echo "Current path is >>>"
-
-      - sh $pwd
-
-      - unzip ./sonar-scanner-cli-4.7.0.2747-linux.zip
-
-      - ls $pwd
-
-      - export PATH=$PATH:./sonar-scanner-4.7.0.2747-linux/bin/
-
-      - sonar-scanner -Dsonar.login=eed8f13793494e9c26c7ca3c5046d127f0b2af9a -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=engr-mayz -Dsonar.organization=engr-mayz
-
-      - sleep 5
-
-      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=engr-mayz_aws-vulnerable-code-without-buildspec >result.json
-
-      - cat result.json
-
-      - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
+   
 
 
       - |-
