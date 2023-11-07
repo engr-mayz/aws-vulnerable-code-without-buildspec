@@ -36,7 +36,7 @@ phases:
 
       - sleep 5
 
-      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=prembly >result.json
+      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=engr-mayz >result.json
 
       - cat result.json
 
