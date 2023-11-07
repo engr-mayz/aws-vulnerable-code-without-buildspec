@@ -15,6 +15,31 @@ phases:
   pre_build:
 
     commands:
+      - apt-get update
+
+      - apt-get install -y jq
+
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
+
+      - echo "Current path is >>>"
+
+      - sh $pwd
+
+      - unzip ./sonar-scanner-cli-4.7.0.2747-linux.zip
+
+      - ls $pwd
+
+      - export PATH=$PATH:./sonar-scanner-4.7.0.2747-linux/bin/
+
+      - sonar-scanner -Dsonar.login=$TOKEN -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=engr-mayz_aws-vulnerable-code-without-buildspec -Dsonar.organization=engr-mayz
+
+      - sleep 5
+
+      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=engr-mayz_aws-vulnerable-code-without-buildspec >result.json
+
+      - cat result.json
+
+      - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
 
 
       - |-
